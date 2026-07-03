@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Datenschutzerklärung von Zaunmacher24." />
+  <link rel="icon" type="image/png" href="images/logo-icon.png" />
+  <title>Datenschutz | Zaunmacher24</title>
+  <style>
+    :root {
+      --brand: #ffcc00;
+      --brand-dark: #d6a700;
+      --accent: #2f3542;
+      --bg: #11161d;
+      --bg-deep: #080a0e;
+      --text: #151922;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --light: #fff7cc;
+      --card: #ffffff;
+      --shadow: 0 22px 60px rgba(47, 53, 66, .13);
+      --radius: 22px;
+      --max: 1180px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(255,204,0,.08), transparent 32%),
+        linear-gradient(180deg, #ffffff 0%, #f7f8fb 100%);
+      line-height: 1.7;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(var(--max), calc(100% - 36px)); margin: 0 auto; }
+
+    .topbar {
+      background: var(--bg);
+      color: rgba(255,255,255,.82);
+      font-size: 14px;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .topbar .container {
+      display: flex;
+      justify-content: flex-end;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .topbar a { color: #fff; font-weight: 700; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255,255,255,.98);
+      border-bottom: 1px solid rgba(229,231,235,.9);
+      box-shadow: 0 14px 35px rgba(47,53,66,.08);
+    }
+    .navbar {
+      min-height: 88px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 22px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+    .brand img {
+      width: 112px;
+      height: auto;
+    }
+    .brand-text strong {
+      display: block;
+      color: var(--text);
+      font-size: 20px;
+      line-height: 1;
+      letter-spacing: .02em;
+      font-weight: 900;
+    }
+    .brand-text small {
+      display: block;
+      margin-top: 5px;
+      color: var(--brand-dark);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .06em;
+    }
+
+    /* Logo wie auf der Startseite */
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      min-width: 0;
+      flex-shrink: 0;
+    }
+    .logo-mark {
+      width: 74px;
+      height: 46px;
+      object-fit: contain;
+      flex: 0 0 74px;
+      display: block;
+    }
+    .logo-wordmark {
+      display: inline-block;
+      min-width: 0;
+    }
+    .logo-text {
+      display: block;
+      color: var(--accent);
+      font-size: 34px;
+      font-weight: 950;
+      line-height: .95;
+      letter-spacing: -.065em;
+      white-space: nowrap;
+    }
+    .logo-text span { color: var(--brand); }
+    .logo-tagline {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .22em;
+      white-space: nowrap;
+    }
+    footer .logo { margin-bottom: 14px; }
+    footer .logo-text { color: #fff; }
+    footer .logo-tagline { color: rgba(255,255,255,.62); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-size: 14px;
+      font-weight: 800;
+      color: #374151;
+    }
+    nav a {
+      position: relative;
+      padding: 30px 0;
+      text-decoration: none;
+      transition: color .22s ease;
+    }
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 22px;
+      width: 0;
+      height: 2px;
+      border-radius: 99px;
+      background: var(--brand);
+      transition: width .25s ease;
+    }
+    nav a:hover, nav a.active { color: var(--brand-dark); }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 999px;
+      padding: 13px 20px;
+      font-size: 13px;
+      font-weight: 900;
+      text-decoration: none;
+      white-space: nowrap;
+      background: var(--brand);
+      color: var(--text);
+      box-shadow: 0 16px 30px rgba(255,204,0,.25);
+      transition: transform .2s ease, background .2s ease;
+    }
+    .btn:hover { background: var(--brand-dark); transform: translateY(-1px); }
+    .menu-btn {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid rgba(47,53,66,.14);
+      border-radius: 14px;
+      background: #fff;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(47,53,66,.10);
+    }
+    .menu-btn span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      margin: 5px auto;
+      background: var(--text);
+      border-radius: 999px;
+    }
+
+    .legal-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 96px 0 86px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 84% 22%, rgba(255,204,0,.20), transparent 32%),
+        linear-gradient(135deg, var(--accent) 0%, var(--bg) 62%, var(--bg-deep) 100%);
+    }
+    .legal-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(17,22,29,.88), rgba(47,53,66,.20));
+      pointer-events: none;
+    }
+    .legal-hero::after {
+      content: "";
+      position: absolute;
+      right: clamp(18px, 7vw, 90px);
+      bottom: 24px;
+      width: min(42vw, 520px);
+      height: 250px;
+      background: url("images/logo.png") center / contain no-repeat;
+      opacity: .10;
+      pointer-events: none;
+    }
+    .legal-hero .container { position: relative; z-index: 1; }
+    .eyebrow {
+      margin-bottom: 10px;
+      color: var(--brand);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .legal-hero h1 {
+      max-width: 780px;
+      color: #fff;
+      font-size: clamp(42px, 6vw, 76px);
+      line-height: .98;
+      letter-spacing: -.055em;
+      font-weight: 950;
+      text-shadow: 0 4px 14px rgba(0,0,0,.68), 0 18px 44px rgba(0,0,0,.38);
+    }
+    .legal-hero p:not(.eyebrow) {
+      max-width: 760px;
+      margin-top: 18px;
+      color: rgba(255,255,255,.86);
+      font-size: 19px;
+      font-weight: 650;
+    }
+
+    .legal-section { padding: 78px 0; }
+    .legal-layout {
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+    .side-card,
+    .content-card {
+      border: 1px solid rgba(47,53,66,.12);
+      border-radius: var(--radius);
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+    .side-card {
+      position: sticky;
+      top: 112px;
+      padding: 26px;
+    }
+    .side-card h2,
+    .content-card h2 {
+      color: var(--text);
+      line-height: 1.15;
+      font-weight: 900;
+      letter-spacing: -.03em;
+    }
+    .side-card h2 {
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    .side-card ul {
+      display: grid;
+      gap: 10px;
+      list-style: none;
+    }
+    .side-card a {
+      display: block;
+      padding: 10px 12px;
+      border-radius: 12px;
+      color: var(--muted);
+      font-weight: 800;
+      text-decoration: none;
+      transition: background .2s ease, color .2s ease, transform .2s ease;
+    }
+    .side-card a:hover,
+    .side-card a.is-current {
+      background: var(--light);
+      color: var(--brand-dark);
+      transform: translateX(3px);
+    }
+    .content-card { padding: clamp(26px, 4vw, 40px); }
+    .block {
+      padding: 0 0 30px;
+      margin-bottom: 30px;
+      border-bottom: 1px solid var(--line);
+    }
+    .block:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .block h2 {
+      margin-bottom: 16px;
+      font-size: 32px;
+    }
+    .block p {
+      margin: 10px 0;
+      color: #3f5160;
+    }
+    .block a { color: var(--brand-dark); font-weight: 800; }
+    .info-list {
+      display: grid;
+      gap: 12px;
+    }
+    .info-list div {
+      display: grid;
+      grid-template-columns: 210px 1fr;
+      gap: 18px;
+      padding: 15px 0;
+      border-bottom: 1px dashed #d8dce3;
+    }
+    .info-list div:last-child { border-bottom: 0; }
+    .info-list strong { color: var(--accent); font-weight: 900; }
+    .info-list span { color: #3f5160; }
+    .note {
+      margin-top: 16px;
+      padding: 14px 16px;
+      border-left: 5px solid var(--brand);
+      border-radius: 12px;
+      background: var(--light);
+      color: #4b3b00;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 58px 0 24px;
+      background: #0c0f14;
+      color: rgba(255,255,255,.70);
+      border-top: 6px solid var(--brand);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 34px;
+      margin-bottom: 34px;
+    }
+    footer img {
+      width: 145px;
+      margin-bottom: 14px;
+    }
+    footer h4 {
+      margin-bottom: 14px;
+      color: #fff;
+      font-size: 22px;
+      font-weight: 900;
+    }
+    footer p, footer a, footer li {
+      color: rgba(255,255,255,.76);
+      font-size: 14px;
+      font-weight: 650;
+    }
+    footer ul {
+      display: grid;
+      gap: 8px;
+      list-style: none;
+    }
+    footer a:hover { color: var(--brand); }
+    .copyright {
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,.13);
+      color: rgba(255,255,255,.58);
+      font-size: 13px;
+      text-align: center;
+    }
+    .footer-legal-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .navbar { min-height: 78px; }
+      .menu-btn { display: block; }
+      nav {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        top: calc(100% + 10px);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px;
+        border: 1px solid rgba(47,53,66,.14);
+        border-radius: 18px;
+        background: rgba(255,255,255,.98);
+        box-shadow: var(--shadow);
+      }
+      nav.is-open { display: flex; }
+      nav a { padding: 13px 14px; border-radius: 12px; }
+      nav a:hover, nav a.active { background: var(--light); }
+      nav a::after { display: none; }
+      .navbar > .btn { display: none; }
+      .legal-layout { grid-template-columns: 1fr; }
+      .side-card { position: static; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .topbar .container { justify-content: center; }
+      .brand img { width: 74px; }
+      .brand-text strong { font-size: 16px; }
+      .brand-text small { font-size: 10px; letter-spacing: 0; }
+
+      .logo-mark { width: 46px; height: 32px; flex-basis: 46px; }
+      .logo-text { font-size: 24px; }
+      .logo-tagline { font-size: 8px; letter-spacing: .12em; }
+      .legal-hero { padding: 64px 0; }
+      .legal-section { padding: 48px 0; }
+      .content-card, .side-card { border-radius: 18px; }
+      .info-list div { grid-template-columns: 1fr; gap: 4px; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+
+    /* Nur Handy/Tablet: Desktop-Design bleibt unverändert */
+    @media (max-width: 980px) {
+      html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      body {
+        -webkit-text-size-adjust: 100%;
+        text-rendering: optimizeLegibility;
+      }
+      a, button {
+        -webkit-tap-highlight-color: rgba(255, 204, 0, .25);
+      }
+      :focus-visible {
+        outline: 3px solid rgba(255, 204, 0, .75);
+        outline-offset: 3px;
+        border-radius: 10px;
+      }
+      .menu-btn,
+      nav a,
+      .btn,
+      .side-card a {
+        touch-action: manipulation;
+      }
+      nav {
+        max-height: calc(100vh - 104px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      nav a {
+        display: flex;
+        align-items: center;
+        min-height: 46px;
+      }
+      .block p,
+      .block a,
+      .info-list span,
+      footer li,
+      footer a {
+        overflow-wrap: anywhere;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: calc(100% - 28px);
+      }
+      .topbar {
+        padding: 8px 0;
+        font-size: 13px;
+      }
+      .topbar .container {
+        gap: 6px 14px;
+        text-align: center;
+      }
+      .navbar {
+        min-height: 66px;
+        gap: 10px;
+      }
+      .logo {
+        gap: 8px;
+        max-width: calc(100% - 58px);
+      }
+      .logo-mark {
+        width: 42px;
+        height: 30px;
+        flex-basis: 42px;
+      }
+      .logo-text {
+        font-size: clamp(21px, 7vw, 25px);
+        letter-spacing: -.045em;
+      }
+      .logo-tagline {
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        font-size: 7px;
+        letter-spacing: .10em;
+      }
+      .menu-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+      }
+      nav {
+        left: 14px;
+        right: 14px;
+        top: calc(100% + 6px);
+        padding: 8px;
+        border-radius: 16px;
+      }
+      nav a {
+        min-height: 44px;
+        padding: 11px 13px;
+        font-size: 14px;
+      }
+      .legal-hero {
+        padding: 42px 0 46px;
+      }
+      .legal-hero::after {
+        right: -45px;
+        bottom: -10px;
+        width: 72vw;
+        height: 150px;
+        opacity: .08;
+      }
+      .eyebrow {
+        font-size: 11px;
+      }
+      .legal-hero h1 {
+        font-size: clamp(36px, 13vw, 48px);
+        letter-spacing: -.045em;
+      }
+      .legal-hero p:not(.eyebrow) {
+        margin-top: 14px;
+        font-size: 16px;
+        line-height: 1.55;
+      }
+      .legal-section {
+        padding: 34px 0 44px;
+      }
+      .legal-layout {
+        gap: 18px;
+      }
+      .side-card {
+        padding: 18px;
+      }
+      .side-card h2 {
+        margin-bottom: 12px;
+        font-size: 23px;
+      }
+      .side-card ul {
+        gap: 6px;
+      }
+      .side-card a {
+        padding: 9px 10px;
+        font-size: 13px;
+      }
+      .content-card {
+        padding: 20px 16px;
+      }
+      .block {
+        margin-bottom: 22px;
+        padding-bottom: 22px;
+      }
+      .block h2 {
+        margin-bottom: 12px;
+        font-size: 22px;
+        line-height: 1.22;
+      }
+      .block p {
+        font-size: 15px;
+        line-height: 1.65;
+      }
+      .info-list {
+        gap: 0;
+      }
+      .info-list div {
+        grid-template-columns: 1fr;
+        gap: 3px;
+        padding: 12px 0;
+      }
+      .info-list strong {
+        font-size: 13px;
+      }
+      .info-list span {
+        font-size: 15px;
+      }
+      footer {
+        padding: 40px 0 20px;
+      }
+      .footer-grid {
+        gap: 24px;
+        margin-bottom: 26px;
+      }
+      footer h4 {
+        margin-bottom: 10px;
+        font-size: 18px;
+      }
+      footer p, footer a, footer li {
+        font-size: 13.5px;
+        line-height: 1.65;
+      }
+      .copyright {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .topbar .container span {
+        width: 100%;
+      }
+      .logo-text {
+        font-size: 20px;
+      }
+      .logo-tagline {
+        display: none;
+      }
+      .content-card {
+        padding: 18px 14px;
+      }
+      .block h2 {
+        font-size: 20px;
+      }
+    }
+
+    @media (hover: none) {
+      .side-card a:hover,
+      .btn:hover {
+        transform: none;
+      }
+    }
+
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container">
+      <span>☎ <a href="tel:+4915679757422">+49 156 79757422</a></span>
+      <span>✉ <a href="mailto:info@zaunmacher24.de">info@zaunmacher24.de</a></span>
+    </div>
+  </div>
+
+  <header>
+    <div class="container navbar">
+      <a class="logo" href="index.html#start" aria-label="Zaunmacher24 Startseite">
+        <img class="logo-mark" src="images/logo-icon.png" alt="" aria-hidden="true">
+        <span class="logo-wordmark">
+          <span class="logo-text">zaunmacher<span>24</span></span>
+          <small class="logo-tagline">ZAUN · TOR · MAUER</small>
+        </span>
+      </a>
+      <nav id="menu" aria-label="Hauptnavigation">
+        <a href="index.html#start">Startseite</a>
+        <a href="index.html#sortiment">Sortiment</a>
+        <a href="index.html#vorteile">Vorteile</a>
+        <a href="index.html#ablauf">Ablauf</a>
+        <a href="index.html#kontakt">Kontakt</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="datenschutz.html" class="active">Datenschutz</a>
+      </nav>
+      <a href="index.html#kontakt" class="btn">Anfrage stellen</a>
+      <button class="menu-btn" id="menuToggle" type="button" aria-label="Menü öffnen" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main>
+    <section class="legal-hero">
+      <div class="container">
+        <p class="eyebrow">Datenschutzerklärung</p>
+        <h1>Datenschutz</h1>
+        <p>Informationen zur Verarbeitung personenbezogener Daten auf der Website von Zaunmacher24.</p>
+      </div>
+    </section>
+
+    <section class="legal-section">
+      <div class="container legal-layout">
+        <aside class="side-card">
+          <h2>Inhalt</h2>
+          <ul>
+            <li><a href="#verantwortlicher">Verantwortlicher</a></li>
+            <li><a href="#hosting">Hosting und Server-Logfiles</a></li>
+            <li><a href="#kontaktaufnahme">Kontaktaufnahme</a></li>
+            <li><a href="#cookies">Cookies und externe Dienste</a></li>
+            <li><a href="#rechte">Ihre Rechte</a></li>
+            <li><a href="#ssl">SSL-/TLS-Verschlüsselung</a></li>
+          </ul>
+        </aside>
+
+        <article class="content-card">
+          <section class="block" id="verantwortlicher">
+            <h2>1. Verantwortlicher</h2>
+            <p>Verantwortlich für die Datenverarbeitung auf dieser Webseite ist:</p>
+            <div class="info-list">
+              <div><strong>Unternehmen</strong><span>Zaunmacher24</span></div>
+              <div><strong>Inhaber</strong><span>Dukvah Hamurzaev</span></div>
+              <div><strong>Anschrift</strong><span>Rendsburger Landstraße 334<br>24111 Kiel</span></div>
+              <div><strong>Telefon</strong><span><a href="tel:+4915679757422">+49 156 79757422</a></span></div>
+              <div><strong>E-Mail</strong><span><a href="mailto:info@zaunmacher24.de">info@zaunmacher24.de</a></span></div>
+            </div>
+          </section>
+
+          <section class="block" id="hosting">
+            <h2>2. Hosting und Server-Logfiles</h2>
+            <p>Beim Aufruf dieser Webseite werden technisch notwendige Zugriffsdaten verarbeitet, damit die Webseite sicher und stabil ausgeliefert werden kann. Dazu können IP-Adresse, Datum und Uhrzeit des Zugriffs, Browsertyp, Betriebssystem, Referrer-URL und aufgerufene Seiten gehören.</p>
+            <p>Die Verarbeitung erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in der sicheren und fehlerfreien Bereitstellung dieser Webseite.</p>
+          </section>
+
+          <section class="block" id="kontaktaufnahme">
+            <h2>3. Kontaktaufnahme</h2>
+            <p>Wenn Sie uns per Kontaktformular, E-Mail oder Telefon kontaktieren, verarbeiten wir die von Ihnen übermittelten Angaben zur Bearbeitung Ihrer Anfrage. Dazu können Name, Kontaktdaten, Nachrichtentext und weitere freiwillige Angaben gehören.</p>
+            <p>Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, sofern die Anfrage mit vorvertraglichen oder vertraglichen Maßnahmen zusammenhängt, ansonsten Art. 6 Abs. 1 lit. f DSGVO.</p>
+          </section>
+
+          <section class="block" id="cookies">
+            <h2>4. Cookies und externe Dienste</h2>
+            <p>Diese Webseite verwendet nach aktuellem Stand nur technisch notwendige Funktionen. Sollten Analyse-, Marketing- oder externe Kartendienste eingebunden werden, muss diese Datenschutzerklärung entsprechend ergänzt werden.</p>
+          </section>
+
+          <section class="block" id="rechte">
+            <h2>5. Ihre Rechte</h2>
+            <p>Sie haben im Rahmen der gesetzlichen Voraussetzungen Rechte auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen bestimmte Verarbeitungen.</p>
+            <p>Außerdem haben Sie das Recht, sich bei einer zuständigen Datenschutzaufsichtsbehörde zu beschweren.</p>
+          </section>
+
+          <section class="block" id="ssl">
+            <h2>6. SSL-/TLS-Verschlüsselung</h2>
+            <p>Diese Webseite sollte aus Sicherheitsgründen und zum Schutz vertraulicher Inhalte ausschließlich über eine verschlüsselte HTTPS-Verbindung bereitgestellt werden.</p>
+          </section>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo">
+            <img class="logo-mark" src="images/logo-icon.png" alt="" aria-hidden="true">
+            <span class="logo-wordmark">
+              <span class="logo-text">zaunmacher<span>24</span></span>
+              <small class="logo-tagline">ZAUN · TOR · MAUER</small>
+            </span>
+          </div>
+          <p>Zaunmacher24 – Betonsteine, Zaunsteine und Mauersteine für moderne Zaun- und Gartenprojekte.</p>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html#start">Start</a></li>
+            <li><a href="index.html#sortiment">Sortiment</a></li>
+            <li><a href="index.html#ablauf">Ablauf</a></li>
+            <li><a href="index.html#kontakt">Kontakt</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Rechtliches</h4>
+          <ul>
+            <li><a href="impressum.html">Impressum</a></li>
+            <li><a href="datenschutz.html">Datenschutz</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontakt</h4>
+          <ul>
+            <li><a href="tel:+4915679757422">+49 156 79757422</a></li>
+            <li><a href="mailto:info@zaunmacher24.de">info@zaunmacher24.de</a></li>
+            <li>Rendsburger Landstraße 334, 24111 Kiel</li>
+          </ul>
+        </div>
+      </div>
+      <div class="copyright">© 2026 Zaunmacher24. Alle Rechte vorbehalten.
+        <div class="footer-legal-links"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('menuToggle');
+    const menu = document.getElementById('menu');
+    btn && btn.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('is-open');
+      btn.setAttribute('aria-expanded', String(isOpen));
+      btn.setAttribute('aria-label', isOpen ? 'Menü schließen' : 'Menü öffnen');
+    });
+
+
+
+    // Verbesserte mobile Navigation: schließt das Menü nach Klick, außerhalb-Klick oder Escape.
+    if (btn && menu) {
+      menu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menu.classList.remove('is-open');
+          btn.setAttribute('aria-expanded', 'false');
+          btn.setAttribute('aria-label', 'Menü öffnen');
+        });
+      });
+      document.addEventListener('click', event => {
+        if (!menu.classList.contains('is-open')) return;
+        if (menu.contains(event.target) || btn.contains(event.target)) return;
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Menü öffnen');
+      });
+      document.addEventListener('keydown', event => {
+        if (event.key !== 'Escape') return;
+        menu.classList.remove('is-open');
+        btn.setAttribute('aria-expanded', 'false');
+        btn.setAttribute('aria-label', 'Menü öffnen');
+      });
+    }
+
+    (function () {
+      const links = Array.from(document.querySelectorAll('.side-card a[href^="#"]'));
+      const sections = links.map(link => document.querySelector(link.getAttribute('href'))).filter(Boolean);
+      if (!links.length || !sections.length) return;
+      function setCurrent() {
+        let current = sections[0];
+        sections.forEach(section => {
+          if (section.getBoundingClientRect().top <= 160) current = section;
+        });
+        links.forEach(link => link.classList.toggle('is-current', link.getAttribute('href') === '#' + current.id));
+      }
+      window.addEventListener('scroll', setCurrent, { passive: true });
+      window.addEventListener('resize', setCurrent);
+      setCurrent();
+    })();
+  </script>
+</body>
+</html>
