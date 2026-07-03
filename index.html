@@ -5007,7 +5007,7 @@
             <div><span>⌖</span><span>Rendsburger Landstraße 334<br>24111 Kiel<br><small>Adresse</small></span></div>
           </div>
         </div>
-        <form action="mailto:info@zaunmacher24.de" method="post" enctype="text/plain">
+        <form id="contactForm" novalidate>
           <div class="form-grid">
             <div class="field">
               <label for="name">Name</label>
@@ -5555,6 +5555,46 @@
       updateActiveLink();
       window.addEventListener('scroll', updateActiveLink, { passive: true });
       window.addEventListener('resize', updateActiveLink);
+    })();
+  </script>
+
+
+  <script>
+    (function () {
+      const form = document.getElementById('contactForm');
+      if (!form) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        const value = (id) => {
+          const element = document.getElementById(id);
+          return element ? element.value.trim() : '';
+        };
+
+        const subject = 'Anfrage über zaunmacher24.de';
+        const body = [
+          'Name: ' + value('name'),
+          'Telefon: ' + value('phone'),
+          'E-Mail: ' + value('email'),
+          'Interesse: ' + value('interest'),
+          'Gewünschtes Produkt: ' + value('product'),
+          '',
+          'Projektbeschreibung:',
+          value('message')
+        ].join('\n');
+
+        window.location.href =
+          'mailto:info@zaunmacher24.de?subject=' +
+          encodeURIComponent(subject) +
+          '&body=' +
+          encodeURIComponent(body);
+      });
     })();
   </script>
 
