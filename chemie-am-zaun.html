@@ -278,7 +278,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:999;background:rgba(255,255,2
   <section id="anfrage" class="contact-section">
     <div class="container">
       <div class="contact-band"><div><p class="kicker">Anfrage</p><h2>Projekt individuell kalkulieren lassen</h2><p>Senden Sie System, Menge, Länge, Höhe, Lieferort und Fotos vom Projektort. Danach kann ein Angebot vorbereitet werden.</p></div><a class="btn btn-primary" href="mailto:info@zaunmacher24.de">info@zaunmacher24.de</a></div>
-      <form class="form-wrap" action="mailto:info@zaunmacher24.de" method="post" enctype="text/plain">
+      <form class="form-wrap" id="inquiryForm" data-mailto-email="info@zaunmacher24.de">
         <div class="form-grid">
           <div class="field"><label for="name">Name</label><input id="name" name="Name" required placeholder="Ihr Name"></div>
           <div class="field"><label for="phone">Telefon</label><input id="phone" name="Telefon" placeholder="Telefonnummer"></div>
@@ -303,6 +303,40 @@ const pageHeader=document.querySelector('header');const menu=document.getElement
 function updateHeaderState(){if(!pageHeader)return;pageHeader.classList.toggle('is-scrolled',window.scrollY>40)}updateHeaderState();window.addEventListener('scroll',updateHeaderState,{passive:true});if(toggle&&menu){toggle.addEventListener('click',()=>menu.classList.toggle('open'))}if(year){year.textContent=new Date().getFullYear()}
 document.querySelectorAll('[data-selection-name]').forEach(btn=>btn.addEventListener('click',()=>{const productInput=document.getElementById('product');if(productInput)productInput.value=btn.dataset.selectionName||'';}));
 </script>
+
+<script>
+(function(){
+  document.querySelectorAll('form[data-mailto-email]').forEach(function(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      var email = form.getAttribute('data-mailto-email') || 'info@zaunmacher24.de';
+      var pageTitle = (document.title || 'Zaunmacher24 Anfrage')
+        .replace(/\s*\|\s*Zaunmacher24\s*/i, '')
+        .trim();
+
+      var subject = 'Anfrage Zaunmacher24' + (pageTitle ? ' - ' + pageTitle : '');
+      var lines = [];
+
+      form.querySelectorAll('input, textarea, select').forEach(function(el){
+        var type = (el.getAttribute('type') || '').toLowerCase();
+        if (['submit','button','reset','file','hidden'].indexOf(type) !== -1) return;
+        if ((type === 'checkbox' || type === 'radio') && !el.checked) return;
+
+        var name = el.getAttribute('name') || el.getAttribute('id') || 'Feld';
+        var value = (el.value || '').trim();
+        lines.push(name + ': ' + value);
+      });
+
+      window.location.href =
+        'mailto:' + email +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(lines.join('\n'));
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
 <style>

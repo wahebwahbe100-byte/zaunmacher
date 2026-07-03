@@ -5007,7 +5007,7 @@
             <div><span>⌖</span><span>Rendsburger Landstraße 334<br>24111 Kiel<br><small>Adresse</small></span></div>
           </div>
         </div>
-        <form id="contactForm" novalidate>
+        <form id="inquiryForm" data-mailto-email="info@zaunmacher24.de">
           <div class="form-grid">
             <div class="field">
               <label for="name">Name</label>
@@ -5559,44 +5559,38 @@
   </script>
 
 
-  <script>
-    (function () {
-      const form = document.getElementById('contactForm');
-      if (!form) return;
+<script>
+(function(){
+  document.querySelectorAll('form[data-mailto-email]').forEach(function(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
 
-      form.addEventListener('submit', function (event) {
-        event.preventDefault();
+      var email = form.getAttribute('data-mailto-email') || 'info@zaunmacher24.de';
+      var pageTitle = (document.title || 'Zaunmacher24 Anfrage')
+        .replace(/\s*\|\s*Zaunmacher24\s*/i, '')
+        .trim();
 
-        if (!form.checkValidity()) {
-          form.reportValidity();
-          return;
-        }
+      var subject = 'Anfrage Zaunmacher24' + (pageTitle ? ' - ' + pageTitle : '');
+      var lines = [];
 
-        const value = (id) => {
-          const element = document.getElementById(id);
-          return element ? element.value.trim() : '';
-        };
+      form.querySelectorAll('input, textarea, select').forEach(function(el){
+        var type = (el.getAttribute('type') || '').toLowerCase();
+        if (['submit','button','reset','file','hidden'].indexOf(type) !== -1) return;
+        if ((type === 'checkbox' || type === 'radio') && !el.checked) return;
 
-        const subject = 'Anfrage über zaunmacher24.de';
-        const body = [
-          'Name: ' + value('name'),
-          'Telefon: ' + value('phone'),
-          'E-Mail: ' + value('email'),
-          'Interesse: ' + value('interest'),
-          'Gewünschtes Produkt: ' + value('product'),
-          '',
-          'Projektbeschreibung:',
-          value('message')
-        ].join('\n');
-
-        window.location.href =
-          'mailto:info@zaunmacher24.de?subject=' +
-          encodeURIComponent(subject) +
-          '&body=' +
-          encodeURIComponent(body);
+        var name = el.getAttribute('name') || el.getAttribute('id') || 'Feld';
+        var value = (el.value || '').trim();
+        lines.push(name + ': ' + value);
       });
-    })();
-  </script>
+
+      window.location.href =
+        'mailto:' + email +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(lines.join('\n'));
+    });
+  });
+})();
+</script>
 
 </body>
 </html>

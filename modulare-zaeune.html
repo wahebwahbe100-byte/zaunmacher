@@ -1739,7 +1739,7 @@
     <section id="anfrage">
       <div class="container">
         <div class="contact-band"><div><p class="kicker">Anfrage</p><h2>JONIEC® ROMA Systeme für moderne Zaunanlagen</h2><p>Senden Sie System, Menge, Länge, Höhe, Lieferort und Fotos vom Projektort. Danach kann ein Angebot vorbereitet werden.</p></div><a class="btn btn-primary" href="mailto:info@zaunmacher24.de">info@zaunmacher24.de</a></div>
-        <form class="form-wrap" action="mailto:info@zaunmacher24.de" method="post" enctype="text/plain">
+        <form class="form-wrap" id="inquiryForm" data-mailto-email="info@zaunmacher24.de">
           <div class="form-grid">
             <div class="field"><label for="name">Name</label><input id="name" name="Name" required placeholder="Ihr Name"></div>
             <div class="field"><label for="phone">Telefon</label><input id="phone" name="Telefon" placeholder="Telefonnummer"></div>
@@ -1803,6 +1803,40 @@
       if (menu) menu.classList.remove('open');
     });
   });
+</script>
+
+
+<script>
+(function(){
+  document.querySelectorAll('form[data-mailto-email]').forEach(function(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+
+      var email = form.getAttribute('data-mailto-email') || 'info@zaunmacher24.de';
+      var pageTitle = (document.title || 'Zaunmacher24 Anfrage')
+        .replace(/\s*\|\s*Zaunmacher24\s*/i, '')
+        .trim();
+
+      var subject = 'Anfrage Zaunmacher24' + (pageTitle ? ' - ' + pageTitle : '');
+      var lines = [];
+
+      form.querySelectorAll('input, textarea, select').forEach(function(el){
+        var type = (el.getAttribute('type') || '').toLowerCase();
+        if (['submit','button','reset','file','hidden'].indexOf(type) !== -1) return;
+        if ((type === 'checkbox' || type === 'radio') && !el.checked) return;
+
+        var name = el.getAttribute('name') || el.getAttribute('id') || 'Feld';
+        var value = (el.value || '').trim();
+        lines.push(name + ': ' + value);
+      });
+
+      window.location.href =
+        'mailto:' + email +
+        '?subject=' + encodeURIComponent(subject) +
+        '&body=' + encodeURIComponent(lines.join('\n'));
+    });
+  });
+})();
 </script>
 
 </body>
