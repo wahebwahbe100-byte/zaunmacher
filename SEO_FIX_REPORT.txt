@@ -1,0 +1,28 @@
+Zaunmacher24 SEO Fix Report
+Generated: 2026-07-03T21:23:04
+
+Visible words/body content: unchanged.
+Added/updated: canonical tags, robots meta, Open Graph, Twitter cards, JSON-LD structured data, sitemap.xml, robots.txt.
+
+- beleuchtung-ausstattung.html: OK | canonical=https://zaunmacher24.de/beleuchtung-ausstattung.html | remaining http://=0
+- betonelemente-felder.html: OK | canonical=https://zaunmacher24.de/betonelemente-felder.html | remaining http://=0
+- betonsteine-mauern.html: OK | canonical=https://zaunmacher24.de/betonsteine-mauern.html | remaining http://=0
+- briefkaesten.html: OK | canonical=https://zaunmacher24.de/briefkaesten.html | remaining http://=0
+- buergersteige.html: OK | canonical=https://zaunmacher24.de/buergersteige.html | remaining http://=0
+- chemie-am-zaun.html: OK | canonical=https://zaunmacher24.de/chemie-am-zaun.html | remaining http://=0
+- datenschutz.html: OK | canonical=https://zaunmacher24.de/datenschutz.html | remaining http://=0
+- fassaden.html: OK | canonical=https://zaunmacher24.de/fassaden.html | remaining http://=0
+- fundamente-anschluesse.html: OK | canonical=https://zaunmacher24.de/fundamente-anschluesse.html | remaining http://=0
+- gartenarchitektur.html: OK | canonical=https://zaunmacher24.de/gartenarchitektur.html | remaining http://=0
+- gartenbeleuchtung.html: OK | canonical=https://zaunmacher24.de/gartenbeleuchtung.html | remaining http://=0
+- gebaeudezubehoer.html: OK | canonical=https://zaunmacher24.de/gebaeudezubehoer.html | remaining http://=0
+- geteilte-zaeune.html: OK | canonical=https://zaunmacher24.de/geteilte-zaeune.html | remaining http://=0
+- index.html: OK | canonical=https://zaunmacher24.de/ | remaining http://=0
+- modulare-zaeune.html: OK | canonical=https://zaunmacher24.de/modulare-zaeune.html | remaining http://=0
+- neuigkeiten.html: OK | canonical=https://zaunmacher24.de/neuigkeiten.html | remaining http://=0
+- produkte.html: OK | canonical=https://zaunmacher24.de/produkte.html | remaining http://=0
+- tore-zaunfelder.html: OK | canonical=https://zaunmacher24.de/tore-zaunfelder.html | remaining http://=0
+- video-gegensprechanlagen.html: OK | canonical=https://zaunmacher24.de/video-gegensprechanlagen.html | remaining http://=0
+- vordaecher-beton.html: OK | canonical=https://zaunmacher24.de/vordaecher-beton.html | remaining http://=0
+- zaunueberspannungen-tore-pforten.html: OK | canonical=https://zaunmacher24.de/zaunueberspannungen-tore-pforten.html | remaining http://=0
+- zubehoer-details.html: OK | canonical=https://zaunmacher24.de/zubehoer-details.html | remaining http://=0
